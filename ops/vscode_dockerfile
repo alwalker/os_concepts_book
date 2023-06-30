@@ -1,0 +1,43 @@
+ARG FEDORA_VERSION=38
+ARG FEDORA_ARCH=x86_64
+FROM registry.fedoraproject.org/fedora:$FEDORA_VERSION-$FEDORA_ARCH
+
+RUN dnf install -y --refresh \
+    dnf-plugins-core \
+    ncurses \
+    nc \
+    less \
+    gcc \
+    glibc \
+    libgcc \
+    libstdc++ \
+    graphviz \
+    git \
+    python \
+    ca-certificates \
+    tar \
+    wget \
+    tree \
+    vim \
+    unzip \
+    postgresql \
+    redis \
+    ansible \
+    jq \
+    lsof \
+    bind-utils
+
+ARG GO_VERSION=1.20.5
+RUN wget -q "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" -O go.tar.gz \
+    && tar -C /usr/local -xzf go.tar.gz \
+    && rm go.tar.gz \
+    && echo 'export PATH=$PATH:/usr/local/go/bin' >> $HOME/.bashrc \
+    && echo 'export GOPATH=$HOME/go' >> $HOME/.bashrc \
+    && echo 'export PATH=$PATH:$GOPATH/bin' >> $HOME/.bashrc \
+    && /usr/local/go/bin/go install golang.org/x/tools/cmd/goimports@latest \
+    && /usr/local/go/bin/go install golang.org/x/tools/gopls@latest \
+    && /usr/local/go/bin/go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
+
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+RUN dnf clean all

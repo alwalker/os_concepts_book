@@ -1,0 +1,15 @@
+{
+    "image": "os_concepts_vscode",
+    "runArgs": [
+        "--userns=keep-id"
+    ],
+    "remoteUser": "root",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,z,type=bind",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+            ]
+        }
+    }
+}
