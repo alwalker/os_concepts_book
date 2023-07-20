@@ -40,4 +40,6 @@ RUN wget -q "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" -O go.tar.gz 
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+RUN dnf install -y java-17-openjdk-devel
+
 RUN dnf clean all
