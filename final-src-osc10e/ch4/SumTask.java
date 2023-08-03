@@ -38,8 +38,8 @@ public class SumTask extends RecursiveTask<Integer>
             // divide stage 
             int mid = begin + (end - begin) / 2;
             
-            SumTask leftTask = new SumTask(begin, mid, array);
-            SumTask rightTask = new SumTask(mid + 1, end, array);
+            ArraySorter leftTask = new ArraySorter(begin, mid, array);
+            ArraySorter rightTask = new ArraySorter(mid + 1, end, array);
 
             leftTask.fork();
             rightTask.fork();
@@ -60,7 +60,7 @@ public class SumTask extends RecursiveTask<Integer>
 		}		
 		
 		// use fork-join parallelism to sum the array
-		SumTask task = new SumTask(0, SIZE-1, array);
+		ArraySorter task = new ArraySorter(0, SIZE-1, array);
 
 		int sum = pool.invoke(task);
 
