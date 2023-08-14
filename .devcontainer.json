@@ -11,7 +11,8 @@
                 "ms-vscode.cpptools-extension-pack",
                 "redhat.java",
                 "vscjava.vscode-java-debug",
-                "rust-lang.rust-analyzer"
+                "rust-lang.rust-analyzer",
+                "ms-vscode.makefile-tools"
             ]
         }
     }
