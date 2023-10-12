@@ -1,10 +1,4 @@
-Current 159
-End 773
-
 LEFT TO READ
-8 - 347
-9 - 389
-10 - 447
 11 - 489
 12 - 527
 13 - 564
@@ -16,10 +10,9 @@ LEFT TO READ
 19 - 773
 
 LEFT TO EXERCISE
-8
 9
 10
 11
 
 
-Week per chapter and week per exercies puts us at EOY if no vacation
+Week per chapter and week per exercises puts us at EOY if no vacation
